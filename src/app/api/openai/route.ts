@@ -1,11 +1,8 @@
 import {OpenAIStream, StreamingTextResponse} from 'ai';
 import OpenAI from 'openai';
-import axiosConfig from "@/utils/axiosConfig";
-
 
 export async function POST(request: Request) {
   const {messages = []}: Partial<{ messages: Array<any> }> = await request.json();
-  console.log("received post messages: ", messages);
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY, // your openai key
     baseURL: process.env.OPENAI_BASE_UR, // if u dont need change baseUrl，you can delete this line
@@ -17,7 +14,6 @@ export async function POST(request: Request) {
       content: message.content,
     };
   });
-  console.log("pick messages: ", PickMessages);
 
   const response = await openai.chat.completions.create({
     model: 'gpt-4o',
