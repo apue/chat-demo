@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Launch Webpage",
+  "version": "1.0",
+  "description": "A Chrome extension to launch a webpage with user interaction.",
+  "permissions": [
+    "cookies",
+    "activeTab",
+    "tabs",
+    "storage",
+    "scripting",
+    "sidePanel",
+    "http://localhost:3000/*"
+  ],
+  "icons": {
+    "32": "images/32.png",
+    "128": "images/128.png"
+  },
+  "action": {
+    "default_title": "Click to open panel"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
